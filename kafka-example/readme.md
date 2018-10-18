@@ -1,4 +1,4 @@
-# kafka-example kafka加单介绍
+# kafka-example kafka简单介绍
 
 **kafka单机版安装**
 

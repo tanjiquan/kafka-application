@@ -1,10 +1,7 @@
-/*
- * www.unisinsight.com Inc.
- * Copyright (c) 2018 All Rights Reserved
- */
 package com.tt.kafka.example.message;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * string 类型的消息数据
@@ -33,7 +30,7 @@ public class MessageData implements Serializable {
     /**
      * 消息数据
      */
-    private Object data;
+    private List<InnerData> datas;
 
     public Long getSendTime() {
         return sendTime;
@@ -59,12 +56,12 @@ public class MessageData implements Serializable {
         this.sendIp = sendIp;
     }
 
-    public Object getData() {
-        return data;
+    public List<InnerData> getDatas() {
+        return datas;
     }
 
-    public void setData(Object data) {
-        this.data = data;
+    public void setDatas(List<InnerData> datas) {
+        this.datas = datas;
     }
 
     @Override
@@ -73,7 +70,7 @@ public class MessageData implements Serializable {
                 "sendTime=" + sendTime +
                 ", recordID='" + recordID + '\'' +
                 ", sendIp='" + sendIp + '\'' +
-                ", data=" + data +
+                ", datas=" + datas +
                 '}';
     }
 }

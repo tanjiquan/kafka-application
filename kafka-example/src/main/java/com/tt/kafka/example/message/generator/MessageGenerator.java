@@ -1,11 +1,11 @@
-/*
- * www.unisinsight.com Inc.
- * Copyright (c) 2018 All Rights Reserved
- */
 package com.tt.kafka.example.message.generator;
 
+import com.alibaba.fastjson.JSON;
+import com.tt.kafka.example.message.InnerData;
 import com.tt.kafka.example.message.MessageData;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -28,9 +28,21 @@ public class MessageGenerator {
         message.setSendTime(System.currentTimeMillis());
         message.setRecordID(recordID.toString());
         message.setSendIp(IP);
-        message.setData("data");
+
+        List dataList = new ArrayList();
+        InnerData data1 = new InnerData();
+        data1.setDataId(1);
+        data1.setDataCommit("commit");
+        dataList.add(data1);
+
+        message.setDatas(dataList);
 
         return message;
+    }
+
+    public static void main(String[] args) {
+        MessageData data = MessageGenerator.stringMessageNext();
+        System.out.print(JSON.toJSONString(data));
     }
 
 }

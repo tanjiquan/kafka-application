@@ -11,7 +11,7 @@ import org.apache.kafka.common.serialization.Deserializer;
 import java.util.Map;
 
 /**
- * MessageData 自定义消息反序列化类
+ * MessageData.avsc 自定义消息反序列化类
  *
  * @author tanjiquan [tan_jiquan@163.com]
  * @date 2018/10/18 16:44

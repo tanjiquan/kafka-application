@@ -34,7 +34,7 @@
         <kafka.client.version>0.10.1.1</kafka.client.version>
         <kafka.scala.version>2.11</kafka.scala.version>
         <confluent.version>3.1.1</confluent.version>
-        <avro.version>1.7.7</avro.version>
+        <avro.version>1.8.2</avro.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 

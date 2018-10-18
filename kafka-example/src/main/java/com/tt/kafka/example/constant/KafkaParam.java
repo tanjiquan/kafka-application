@@ -1,7 +1,3 @@
-/*
- * www.unisinsight.com Inc.
- * Copyright (c) 2018 All Rights Reserved
- */
 package com.tt.kafka.example.constant;
 
 /**

@@ -1,0 +1,22 @@
+{
+  "namespace": "com.tt.kafka.example.avro",
+  "type": "record",
+  "name": "MessageData",
+  "fields": [
+    {"name": "sendTime", "type": "long"},
+    {"name": "recordID",  "type": "string"},
+    {"name": "sendIp",  "type": "string"},
+    {"name": "datas",  "type": {
+        "type": "array",
+            "items":{
+                "type":"record",
+                "name" : "InnerData",
+                "fields":[
+                    {"name":"dataId","type":"int"},
+                    {"name":"dataCommit","type":"string"}
+                ]
+            }
+        }
+    }
+  ]
+}

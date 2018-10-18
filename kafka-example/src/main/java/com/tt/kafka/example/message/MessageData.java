@@ -4,6 +4,8 @@
  */
 package com.tt.kafka.example.message;
 
+import java.io.Serializable;
+
 /**
  * string 类型的消息数据
  *
@@ -11,8 +13,8 @@ package com.tt.kafka.example.message;
  * @date 2018/10/18 11:23
  * @since 1.0
  */
-public class StringMessage {
-
+public class MessageData implements Serializable {
+    private static final long serialVersionUID = -6720863754163588518L;
     /**
      * 消息发送时间
      */
@@ -63,5 +65,15 @@ public class StringMessage {
 
     public void setData(Object data) {
         this.data = data;
+    }
+
+    @Override
+    public String toString() {
+        return "MessageData{" +
+                "sendTime=" + sendTime +
+                ", recordID='" + recordID + '\'' +
+                ", sendIp='" + sendIp + '\'' +
+                ", data=" + data +
+                '}';
     }
 }

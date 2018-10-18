@@ -4,7 +4,7 @@
  */
 package com.tt.kafka.example.message.generator;
 
-import com.tt.kafka.example.message.StringMessage;
+import com.tt.kafka.example.message.MessageData;
 
 import java.util.Random;
 
@@ -19,12 +19,12 @@ public class MessageGenerator {
 
     public static final String IP = "127.0.0.1";
 
-    public static StringMessage stringMessageNext() {
+    public static MessageData stringMessageNext() {
         Random r = new Random();
 
         Integer recordID = r.nextInt();
 
-        StringMessage message = new StringMessage();
+        MessageData message = new MessageData();
         message.setSendTime(System.currentTimeMillis());
         message.setRecordID(recordID.toString());
         message.setSendIp(IP);

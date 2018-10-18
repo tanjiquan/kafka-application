@@ -39,3 +39,5 @@
 <br> 14.source /etc/profile
 <br> 15.nohup /home/tanjiquan/kafka/kafka_2.12-0.11.0.3/bin/kafka-server-start.sh /home/tanjiquan/kafka/kafka_2.12-0.11.0.3/config/server.properties >>/home/tanjiquan/kafka/kafka_2.12-0.11.0.3/kafka.log &
 
+
+

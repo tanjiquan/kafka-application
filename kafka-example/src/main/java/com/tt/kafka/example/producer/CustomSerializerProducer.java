@@ -4,8 +4,8 @@
  */
 package com.tt.kafka.example.producer;
 
-import com.alibaba.fastjson.JSON;
 import com.tt.kafka.example.constant.KafkaParam;
+import com.tt.kafka.example.message.MessageData;
 import com.tt.kafka.example.message.generator.MessageGenerator;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.Producer;
@@ -17,13 +17,13 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
 /**
- * StringSerializer 类型生产端
+ * 自定义序列化类型 生产端
  *
- * @author tanjiquan [tan_jiquan@163.com]
- * @date 2018/10/18 11:13
+ * @author tanjiquan [KF.tanjiquan@h3c.com]
+ * @date 2018/10/18 16:26
  * @since 1.0
  */
-public class StringSerializerProducer {
+public class CustomSerializerProducer {
 
     public static void main(String[] args) throws InterruptedException {
         Properties props = new Properties();
@@ -31,14 +31,14 @@ public class StringSerializerProducer {
         props.put("acks", "all");
         props.put("retries", 3);
         props.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
-        props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
+        props.put("value.serializer", "com.tt.kafka.example.message.serializer.MessageDataSerializer");
 
         int wait = 1000;
-        Producer<String, String> producer = new KafkaProducer<>(props);
+        Producer<String, MessageData> producer = new KafkaProducer<>(props);
         while (true) {
-            ProducerRecord<String, String> producerRecord = new ProducerRecord(KafkaParam.STRING_TOPIC, "", JSON.toJSONString(MessageGenerator.stringMessageNext()));
+            ProducerRecord<String, MessageData> producerRecord = new ProducerRecord(KafkaParam.STRING_TOPIC, "", MessageGenerator.stringMessageNext());
             Future<RecordMetadata> future = producer.send(producerRecord);
-            System.out.println("send messageData: " + producerRecord.value());
+            System.out.println("send messageDataSerializer messageData: " + producerRecord.value());
             try {
                 System.out.println("get: " + future.get().toString());
             } catch (ExecutionException e) {

@@ -1,6 +1,8 @@
 package com.tt.kafka.example.message.generator;
 
 import com.alibaba.fastjson.JSON;
+import com.tt.kafka.example.avro.AvroInnerData;
+import com.tt.kafka.example.avro.AvroMessageData;
 import com.tt.kafka.example.message.InnerData;
 import com.tt.kafka.example.message.MessageData;
 
@@ -19,7 +21,7 @@ public class MessageGenerator {
 
     public static final String IP = "127.0.0.1";
 
-    public static MessageData stringMessageNext() {
+    public static MessageData messageNext() {
         Random r = new Random();
 
         Integer recordID = r.nextInt();
@@ -40,8 +42,29 @@ public class MessageGenerator {
         return message;
     }
 
+    public static AvroMessageData avroMessageNext() {
+        Random r = new Random();
+
+        Integer recordID = r.nextInt();
+
+        AvroMessageData message = new AvroMessageData();
+        message.setSendTime(System.currentTimeMillis());
+        message.setRecordID(recordID.toString());
+        message.setSendIp(IP);
+
+        List dataList = new ArrayList();
+        AvroInnerData data1 = new AvroInnerData();
+        data1.setDataId(1);
+        data1.setDataCommit("commit");
+        dataList.add(data1);
+
+        message.setDatas(dataList);
+
+        return message;
+    }
+
     public static void main(String[] args) {
-        MessageData data = MessageGenerator.stringMessageNext();
+        MessageData data = MessageGenerator.messageNext();
         System.out.print(JSON.toJSONString(data));
     }
 

@@ -12,23 +12,23 @@ import org.apache.avro.message.SchemaStore;
 
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
-public class InnerData extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -1143440405669562278L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"InnerData\",\"namespace\":\"com.tt.kafka.example.avro\",\"fields\":[{\"name\":\"dataId\",\"type\":\"int\"},{\"name\":\"dataCommit\",\"type\":\"string\"}]}");
+public class AvroInnerData extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
+  private static final long serialVersionUID = -9140525994737121381L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"AvroInnerData\",\"namespace\":\"com.tt.kafka.example.avro\",\"fields\":[{\"name\":\"dataId\",\"type\":\"int\"},{\"name\":\"dataCommit\",\"type\":\"string\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
 
-  private static final BinaryMessageEncoder<InnerData> ENCODER =
-      new BinaryMessageEncoder<InnerData>(MODEL$, SCHEMA$);
+  private static final BinaryMessageEncoder<AvroInnerData> ENCODER =
+      new BinaryMessageEncoder<AvroInnerData>(MODEL$, SCHEMA$);
 
-  private static final BinaryMessageDecoder<InnerData> DECODER =
-      new BinaryMessageDecoder<InnerData>(MODEL$, SCHEMA$);
+  private static final BinaryMessageDecoder<AvroInnerData> DECODER =
+      new BinaryMessageDecoder<AvroInnerData>(MODEL$, SCHEMA$);
 
   /**
    * Return the BinaryMessageDecoder instance used by this class.
    */
-  public static BinaryMessageDecoder<InnerData> getDecoder() {
+  public static BinaryMessageDecoder<AvroInnerData> getDecoder() {
     return DECODER;
   }
 
@@ -36,17 +36,17 @@ public class InnerData extends org.apache.avro.specific.SpecificRecordBase imple
    * Create a new BinaryMessageDecoder instance for this class that uses the specified {@link SchemaStore}.
    * @param resolver a {@link SchemaStore} used to find schemas by fingerprint
    */
-  public static BinaryMessageDecoder<InnerData> createDecoder(SchemaStore resolver) {
-    return new BinaryMessageDecoder<InnerData>(MODEL$, SCHEMA$, resolver);
+  public static BinaryMessageDecoder<AvroInnerData> createDecoder(SchemaStore resolver) {
+    return new BinaryMessageDecoder<AvroInnerData>(MODEL$, SCHEMA$, resolver);
   }
 
-  /** Serializes this InnerData to a ByteBuffer. */
+  /** Serializes this AvroInnerData to a ByteBuffer. */
   public java.nio.ByteBuffer toByteBuffer() throws java.io.IOException {
     return ENCODER.encode(this);
   }
 
-  /** Deserializes a InnerData from a ByteBuffer. */
-  public static InnerData fromByteBuffer(
+  /** Deserializes a AvroInnerData from a ByteBuffer. */
+  public static AvroInnerData fromByteBuffer(
       java.nio.ByteBuffer b) throws java.io.IOException {
     return DECODER.decode(b);
   }
@@ -59,14 +59,14 @@ public class InnerData extends org.apache.avro.specific.SpecificRecordBase imple
    * to their default values from the schema.  If that is desired then
    * one should use <code>newBuilder()</code>.
    */
-  public InnerData() {}
+  public AvroInnerData() {}
 
   /**
    * All-args constructor.
    * @param dataId The new value for dataId
    * @param dataCommit The new value for dataCommit
    */
-  public InnerData(java.lang.Integer dataId, java.lang.CharSequence dataCommit) {
+  public AvroInnerData(java.lang.Integer dataId, java.lang.CharSequence dataCommit) {
     this.dataId = dataId;
     this.dataCommit = dataCommit;
   }
@@ -124,36 +124,36 @@ public class InnerData extends org.apache.avro.specific.SpecificRecordBase imple
   }
 
   /**
-   * Creates a new InnerData RecordBuilder.
-   * @return A new InnerData RecordBuilder
+   * Creates a new AvroInnerData RecordBuilder.
+   * @return A new AvroInnerData RecordBuilder
    */
-  public static com.tt.kafka.example.avro.InnerData.Builder newBuilder() {
-    return new com.tt.kafka.example.avro.InnerData.Builder();
+  public static com.tt.kafka.example.avro.AvroInnerData.Builder newBuilder() {
+    return new com.tt.kafka.example.avro.AvroInnerData.Builder();
   }
 
   /**
-   * Creates a new InnerData RecordBuilder by copying an existing Builder.
+   * Creates a new AvroInnerData RecordBuilder by copying an existing Builder.
    * @param other The existing builder to copy.
-   * @return A new InnerData RecordBuilder
+   * @return A new AvroInnerData RecordBuilder
    */
-  public static com.tt.kafka.example.avro.InnerData.Builder newBuilder(com.tt.kafka.example.avro.InnerData.Builder other) {
-    return new com.tt.kafka.example.avro.InnerData.Builder(other);
+  public static com.tt.kafka.example.avro.AvroInnerData.Builder newBuilder(com.tt.kafka.example.avro.AvroInnerData.Builder other) {
+    return new com.tt.kafka.example.avro.AvroInnerData.Builder(other);
   }
 
   /**
-   * Creates a new InnerData RecordBuilder by copying an existing InnerData instance.
+   * Creates a new AvroInnerData RecordBuilder by copying an existing AvroInnerData instance.
    * @param other The existing instance to copy.
-   * @return A new InnerData RecordBuilder
+   * @return A new AvroInnerData RecordBuilder
    */
-  public static com.tt.kafka.example.avro.InnerData.Builder newBuilder(com.tt.kafka.example.avro.InnerData other) {
-    return new com.tt.kafka.example.avro.InnerData.Builder(other);
+  public static com.tt.kafka.example.avro.AvroInnerData.Builder newBuilder(com.tt.kafka.example.avro.AvroInnerData other) {
+    return new com.tt.kafka.example.avro.AvroInnerData.Builder(other);
   }
 
   /**
-   * RecordBuilder for InnerData instances.
+   * RecordBuilder for AvroInnerData instances.
    */
-  public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<InnerData>
-    implements org.apache.avro.data.RecordBuilder<InnerData> {
+  public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<AvroInnerData>
+    implements org.apache.avro.data.RecordBuilder<AvroInnerData> {
 
     private int dataId;
     private java.lang.CharSequence dataCommit;
@@ -167,7 +167,7 @@ public class InnerData extends org.apache.avro.specific.SpecificRecordBase imple
      * Creates a Builder by copying an existing Builder.
      * @param other The existing Builder to copy.
      */
-    private Builder(com.tt.kafka.example.avro.InnerData.Builder other) {
+    private Builder(com.tt.kafka.example.avro.AvroInnerData.Builder other) {
       super(other);
       if (isValidValue(fields()[0], other.dataId)) {
         this.dataId = data().deepCopy(fields()[0].schema(), other.dataId);
@@ -180,10 +180,10 @@ public class InnerData extends org.apache.avro.specific.SpecificRecordBase imple
     }
 
     /**
-     * Creates a Builder by copying an existing InnerData instance
+     * Creates a Builder by copying an existing AvroInnerData instance
      * @param other The existing instance to copy.
      */
-    private Builder(com.tt.kafka.example.avro.InnerData other) {
+    private Builder(com.tt.kafka.example.avro.AvroInnerData other) {
             super(SCHEMA$);
       if (isValidValue(fields()[0], other.dataId)) {
         this.dataId = data().deepCopy(fields()[0].schema(), other.dataId);
@@ -208,7 +208,7 @@ public class InnerData extends org.apache.avro.specific.SpecificRecordBase imple
       * @param value The value of 'dataId'.
       * @return This builder.
       */
-    public com.tt.kafka.example.avro.InnerData.Builder setDataId(int value) {
+    public com.tt.kafka.example.avro.AvroInnerData.Builder setDataId(int value) {
       validate(fields()[0], value);
       this.dataId = value;
       fieldSetFlags()[0] = true;
@@ -228,7 +228,7 @@ public class InnerData extends org.apache.avro.specific.SpecificRecordBase imple
       * Clears the value of the 'dataId' field.
       * @return This builder.
       */
-    public com.tt.kafka.example.avro.InnerData.Builder clearDataId() {
+    public com.tt.kafka.example.avro.AvroInnerData.Builder clearDataId() {
       fieldSetFlags()[0] = false;
       return this;
     }
@@ -246,7 +246,7 @@ public class InnerData extends org.apache.avro.specific.SpecificRecordBase imple
       * @param value The value of 'dataCommit'.
       * @return This builder.
       */
-    public com.tt.kafka.example.avro.InnerData.Builder setDataCommit(java.lang.CharSequence value) {
+    public com.tt.kafka.example.avro.AvroInnerData.Builder setDataCommit(java.lang.CharSequence value) {
       validate(fields()[1], value);
       this.dataCommit = value;
       fieldSetFlags()[1] = true;
@@ -266,7 +266,7 @@ public class InnerData extends org.apache.avro.specific.SpecificRecordBase imple
       * Clears the value of the 'dataCommit' field.
       * @return This builder.
       */
-    public com.tt.kafka.example.avro.InnerData.Builder clearDataCommit() {
+    public com.tt.kafka.example.avro.AvroInnerData.Builder clearDataCommit() {
       dataCommit = null;
       fieldSetFlags()[1] = false;
       return this;
@@ -274,9 +274,9 @@ public class InnerData extends org.apache.avro.specific.SpecificRecordBase imple
 
     @Override
     @SuppressWarnings("unchecked")
-    public InnerData build() {
+    public AvroInnerData build() {
       try {
-        InnerData record = new InnerData();
+        AvroInnerData record = new AvroInnerData();
         record.dataId = fieldSetFlags()[0] ? this.dataId : (java.lang.Integer) defaultValue(fields()[0]);
         record.dataCommit = fieldSetFlags()[1] ? this.dataCommit : (java.lang.CharSequence) defaultValue(fields()[1]);
         return record;
@@ -287,8 +287,8 @@ public class InnerData extends org.apache.avro.specific.SpecificRecordBase imple
   }
 
   @SuppressWarnings("unchecked")
-  private static final org.apache.avro.io.DatumWriter<InnerData>
-    WRITER$ = (org.apache.avro.io.DatumWriter<InnerData>)MODEL$.createDatumWriter(SCHEMA$);
+  private static final org.apache.avro.io.DatumWriter<AvroInnerData>
+    WRITER$ = (org.apache.avro.io.DatumWriter<AvroInnerData>)MODEL$.createDatumWriter(SCHEMA$);
 
   @Override public void writeExternal(java.io.ObjectOutput out)
     throws java.io.IOException {
@@ -296,8 +296,8 @@ public class InnerData extends org.apache.avro.specific.SpecificRecordBase imple
   }
 
   @SuppressWarnings("unchecked")
-  private static final org.apache.avro.io.DatumReader<InnerData>
-    READER$ = (org.apache.avro.io.DatumReader<InnerData>)MODEL$.createDatumReader(SCHEMA$);
+  private static final org.apache.avro.io.DatumReader<AvroInnerData>
+    READER$ = (org.apache.avro.io.DatumReader<AvroInnerData>)MODEL$.createDatumReader(SCHEMA$);
 
   @Override public void readExternal(java.io.ObjectInput in)
     throws java.io.IOException {

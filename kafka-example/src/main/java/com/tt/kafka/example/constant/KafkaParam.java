@@ -9,8 +9,8 @@ package com.tt.kafka.example.constant;
  */
 public class KafkaParam {
 
-    public static final String STRING_TOPIC = "string_test_topic";
+    public static final String STRING_TOPIC = "test_topic";
 
-    public static final String BROKER_LIST = "192.168.110.24:9092";
+    public static final String BROKER_LIST = "127.0.0.1:9092";
 
 }

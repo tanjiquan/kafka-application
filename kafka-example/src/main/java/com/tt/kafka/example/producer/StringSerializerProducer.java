@@ -32,7 +32,7 @@ public class StringSerializerProducer {
         int wait = 1000;
         Producer<String, String> producer = new KafkaProducer<>(props);
         while (true) {
-            ProducerRecord<String, String> producerRecord = new ProducerRecord(KafkaParam.STRING_TOPIC, "", JSON.toJSONString(MessageGenerator.stringMessageNext()));
+            ProducerRecord<String, String> producerRecord = new ProducerRecord(KafkaParam.STRING_TOPIC, "", JSON.toJSONString(MessageGenerator.messageNext()));
             Future<RecordMetadata> future = producer.send(producerRecord);
             System.out.println("send messageData: " + producerRecord.value());
             try {

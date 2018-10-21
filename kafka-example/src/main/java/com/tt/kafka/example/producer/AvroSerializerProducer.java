@@ -1,8 +1,9 @@
 package com.tt.kafka.example.producer;
 
+import com.tt.kafka.example.avro.AvroMessageData;
 import com.tt.kafka.example.constant.KafkaParam;
-import com.tt.kafka.example.message.MessageData;
 import com.tt.kafka.example.message.generator.MessageGenerator;
+import com.tt.kafka.example.message.serializer.AvroSerializer;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.Producer;
 import org.apache.kafka.clients.producer.ProducerRecord;
@@ -13,13 +14,13 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
 /**
- * 自定义序列化类型 生产端
+ * avro 序列化方式 生产端
  *
- * @author tanjiquan [KF.tanjiquan@h3c.com]
- * @date 2018/10/18 16:26
+ * @author tanjiquan [tan_jiquan@163.com]
+ * @date 2018/10/18 11:13
  * @since 1.0
  */
-public class CustomSerializerProducer {
+public class AvroSerializerProducer {
 
     public static void main(String[] args) throws InterruptedException {
         Properties props = new Properties();
@@ -27,14 +28,15 @@ public class CustomSerializerProducer {
         props.put("acks", "all");
         props.put("retries", 3);
         props.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
-        props.put("value.serializer", "com.tt.kafka.example.message.serializer.MessageDataSerializer");
+        props.put("value.serializer", "com.tt.kafka.example.message.serializer.AvroSerializer");
+        props.put(AvroSerializer.SCHEMA_CONFIG, AvroMessageData.SCHEMA$);
 
-        int wait = 1000;
-        Producer<String, MessageData> producer = new KafkaProducer<>(props);
+        int wait = 10000;
+        Producer<String, AvroMessageData> producer = new KafkaProducer<>(props);
         while (true) {
-            ProducerRecord<String, MessageData> producerRecord = new ProducerRecord(KafkaParam.STRING_TOPIC, "", MessageGenerator.messageNext());
+            ProducerRecord<String, AvroMessageData> producerRecord = new ProducerRecord(KafkaParam.STRING_TOPIC, "", MessageGenerator.avroMessageNext());
             Future<RecordMetadata> future = producer.send(producerRecord);
-            System.out.println("send messageDataSerializer messageData: " + producerRecord.value());
+            System.out.println("send avroSerializer messageData: " + producerRecord.value());
             try {
                 System.out.println("get: " + future.get().toString());
             } catch (ExecutionException e) {

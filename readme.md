@@ -2,7 +2,7 @@
 
 [kafka-example](https://github.com/tanjiquan/kafka-application/tree/master/kafka-example/readme.md)
 主要是简单操作kafka，其中包含对生产、消费kafka数据demo，主要是对一些参数的介绍和认识。
-
+Binary
 1、序列化
 <br>1.1 简单的 StringSerializer 序列化，StringDeserializer 反序列化
 <br> &emsp;&emsp;  StringSerializer、StringDeserializer 类很简单，就是实现 Serializer 接口，但是注意这个接口是
@@ -17,6 +17,8 @@ org.apache.kafka.common.serialization包下面的，String序列化很简单，�
 <br> 上面的序列化和反序列化类和String 的序列换和反序列化及其相似。
 
 <br>1.3 avro 序列化/反序列化 <br> 
+&emsp;&emsp;  Avro 是一个数据序列化的系统，它可以将数据结构或对象转化成便于存储或传输的格式。
+Avro设计之初就用来支持数据密集型应用，适合于远程或本地大规模数据的存储和交换。
 &emsp;&emsp;  JSON是一种常用的数据交换格式，很多系统都会使用JSON作为数据接口返回的数据格式，然而，由于JSON数据中包含大量的字段名字，
 导致空间的严重浪费，尤其是数据文件较大的时候，而AVRO是一种更加紧凑的数据序列化系统，占用空间相对较少，更利于数据在网络当中的传输.
 首先我们要将嵌套的JSON数据与AVRO文件的相互转换，主要使用[avro-tools](http://mirrors.hust.edu.cn/apache/avro/avro-1.8.2/java/)
@@ -40,7 +42,7 @@ json数据:
 {
   "namespace": "com.tt.kafka.example.avro",
   "type": "record",
-  "name": "MessageData",
+  "name": "AvroMessageData",
   "fields": [
     {"name": "sendTime", "type": "long"},
     {"name": "recordID",  "type": "string"},
@@ -48,7 +50,7 @@ json数据:
     {"name": "datas",  "type": "array",
         "items":{
              "type":"record",
-             "name" : "InnerData",
+             "name" : "AvroInnerData",
              "fields":[
                     {"name":"dataId","type":"int"},
                     {"name":"dataCommit","type":"string"}
@@ -63,11 +65,15 @@ json数据:
 * fields里的name必须与JSON数据里的字段名保持一致。
 * 值得注意的是，从前面的JSON数据可以看到，data信息为数组字段，因此，必须先指定name为Data，
 而且type是一个对象，并不能单纯地指定为array，而是需要在对象里再用一个type来指定array，然后再加上items。
-（2）根据 MessageData.avsc 文件生成 .java 文件，会生成 InnerData.java 和 MessageData.java
-java -jar /path/to/avro-tools-1.8.0.jar compile schema <schema file> <destination>
-java -jar /.../resources/avro/avro-tools-1.8.2.jar compile schema /../MessageData.avsc  ./
+<br>（2）根据 MessageData.avsc 文件生成 .java 文件，会生成 InnerData.java 和 MessageData.java
+<br> java -jar /path/to/avro-tools-1.8.0.jar compile schema <schema file> <destination>
+<br> 进入 com.tt 的上一个目录
+<br> java -jar /../avro-tools-1.8.2.jar compile schema /../MessageData.avsc  /../main/java/
+<br> (3)指定如下配置，并且ProducerRecord 和 ConsumerRecords 分别指定为 AvroMessageData 类型
+详情请见 AvroSerializerProducer 和 AvroSerializerConsumer
+<br> props.put("value.serializer", "com.tt.kafka.example.message.serializer.AvroSerializer");
+<br> props.put(AvroSerializer.SCHEMA_CONFIG, AvroMessageData.SCHEMA$);
+
+<br>1.3  protobuf 序列化/反序列化 <br> 
 
 
-
-
-<br>&emsp;&emsp; 1.3 自定义序列化类型

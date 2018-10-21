@@ -1,7 +1,7 @@
 {
   "namespace": "com.tt.kafka.example.avro",
   "type": "record",
-  "name": "MessageData",
+  "name": "AvroMessageData",
   "fields": [
     {"name": "sendTime", "type": "long"},
     {"name": "recordID",  "type": "string"},
@@ -10,7 +10,7 @@
         "type": "array",
             "items":{
                 "type":"record",
-                "name" : "InnerData",
+                "name" : "AvroInnerData",
                 "fields":[
                     {"name":"dataId","type":"int"},
                     {"name":"dataCommit","type":"string"}

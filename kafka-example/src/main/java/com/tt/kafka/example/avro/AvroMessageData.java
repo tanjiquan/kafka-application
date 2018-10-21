@@ -12,23 +12,23 @@ import org.apache.avro.message.SchemaStore;
 
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
-public class MessageData extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = 374205800192969605L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"MessageData\",\"namespace\":\"com.tt.kafka.example.avro\",\"fields\":[{\"name\":\"sendTime\",\"type\":\"long\"},{\"name\":\"recordID\",\"type\":\"string\"},{\"name\":\"sendIp\",\"type\":\"string\"},{\"name\":\"datas\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"InnerData\",\"fields\":[{\"name\":\"dataId\",\"type\":\"int\"},{\"name\":\"dataCommit\",\"type\":\"string\"}]}}}]}");
+public class AvroMessageData extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
+  private static final long serialVersionUID = 4576340650469075307L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"AvroMessageData\",\"namespace\":\"com.tt.kafka.example.avro\",\"fields\":[{\"name\":\"sendTime\",\"type\":\"long\"},{\"name\":\"recordID\",\"type\":\"string\"},{\"name\":\"sendIp\",\"type\":\"string\"},{\"name\":\"datas\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"AvroInnerData\",\"fields\":[{\"name\":\"dataId\",\"type\":\"int\"},{\"name\":\"dataCommit\",\"type\":\"string\"}]}}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
 
-  private static final BinaryMessageEncoder<MessageData> ENCODER =
-      new BinaryMessageEncoder<MessageData>(MODEL$, SCHEMA$);
+  private static final BinaryMessageEncoder<AvroMessageData> ENCODER =
+      new BinaryMessageEncoder<AvroMessageData>(MODEL$, SCHEMA$);
 
-  private static final BinaryMessageDecoder<MessageData> DECODER =
-      new BinaryMessageDecoder<MessageData>(MODEL$, SCHEMA$);
+  private static final BinaryMessageDecoder<AvroMessageData> DECODER =
+      new BinaryMessageDecoder<AvroMessageData>(MODEL$, SCHEMA$);
 
   /**
    * Return the BinaryMessageDecoder instance used by this class.
    */
-  public static BinaryMessageDecoder<MessageData> getDecoder() {
+  public static BinaryMessageDecoder<AvroMessageData> getDecoder() {
     return DECODER;
   }
 
@@ -36,17 +36,17 @@ public class MessageData extends org.apache.avro.specific.SpecificRecordBase imp
    * Create a new BinaryMessageDecoder instance for this class that uses the specified {@link SchemaStore}.
    * @param resolver a {@link SchemaStore} used to find schemas by fingerprint
    */
-  public static BinaryMessageDecoder<MessageData> createDecoder(SchemaStore resolver) {
-    return new BinaryMessageDecoder<MessageData>(MODEL$, SCHEMA$, resolver);
+  public static BinaryMessageDecoder<AvroMessageData> createDecoder(SchemaStore resolver) {
+    return new BinaryMessageDecoder<AvroMessageData>(MODEL$, SCHEMA$, resolver);
   }
 
-  /** Serializes this MessageData to a ByteBuffer. */
+  /** Serializes this AvroMessageData to a ByteBuffer. */
   public java.nio.ByteBuffer toByteBuffer() throws java.io.IOException {
     return ENCODER.encode(this);
   }
 
-  /** Deserializes a MessageData from a ByteBuffer. */
-  public static MessageData fromByteBuffer(
+  /** Deserializes a AvroMessageData from a ByteBuffer. */
+  public static AvroMessageData fromByteBuffer(
       java.nio.ByteBuffer b) throws java.io.IOException {
     return DECODER.decode(b);
   }
@@ -54,14 +54,14 @@ public class MessageData extends org.apache.avro.specific.SpecificRecordBase imp
   @Deprecated public long sendTime;
   @Deprecated public java.lang.CharSequence recordID;
   @Deprecated public java.lang.CharSequence sendIp;
-  @Deprecated public java.util.List<com.tt.kafka.example.avro.InnerData> datas;
+  @Deprecated public java.util.List<com.tt.kafka.example.avro.AvroInnerData> datas;
 
   /**
    * Default constructor.  Note that this does not initialize fields
    * to their default values from the schema.  If that is desired then
    * one should use <code>newBuilder()</code>.
    */
-  public MessageData() {}
+  public AvroMessageData() {}
 
   /**
    * All-args constructor.
@@ -70,7 +70,7 @@ public class MessageData extends org.apache.avro.specific.SpecificRecordBase imp
    * @param sendIp The new value for sendIp
    * @param datas The new value for datas
    */
-  public MessageData(java.lang.Long sendTime, java.lang.CharSequence recordID, java.lang.CharSequence sendIp, java.util.List<com.tt.kafka.example.avro.InnerData> datas) {
+  public AvroMessageData(java.lang.Long sendTime, java.lang.CharSequence recordID, java.lang.CharSequence sendIp, java.util.List<com.tt.kafka.example.avro.AvroInnerData> datas) {
     this.sendTime = sendTime;
     this.recordID = recordID;
     this.sendIp = sendIp;
@@ -96,7 +96,7 @@ public class MessageData extends org.apache.avro.specific.SpecificRecordBase imp
     case 0: sendTime = (java.lang.Long)value$; break;
     case 1: recordID = (java.lang.CharSequence)value$; break;
     case 2: sendIp = (java.lang.CharSequence)value$; break;
-    case 3: datas = (java.util.List<com.tt.kafka.example.avro.InnerData>)value$; break;
+    case 3: datas = (java.util.List<com.tt.kafka.example.avro.AvroInnerData>)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -153,7 +153,7 @@ public class MessageData extends org.apache.avro.specific.SpecificRecordBase imp
    * Gets the value of the 'datas' field.
    * @return The value of the 'datas' field.
    */
-  public java.util.List<com.tt.kafka.example.avro.InnerData> getDatas() {
+  public java.util.List<com.tt.kafka.example.avro.AvroInnerData> getDatas() {
     return datas;
   }
 
@@ -161,46 +161,46 @@ public class MessageData extends org.apache.avro.specific.SpecificRecordBase imp
    * Sets the value of the 'datas' field.
    * @param value the value to set.
    */
-  public void setDatas(java.util.List<com.tt.kafka.example.avro.InnerData> value) {
+  public void setDatas(java.util.List<com.tt.kafka.example.avro.AvroInnerData> value) {
     this.datas = value;
   }
 
   /**
-   * Creates a new MessageData RecordBuilder.
-   * @return A new MessageData RecordBuilder
+   * Creates a new AvroMessageData RecordBuilder.
+   * @return A new AvroMessageData RecordBuilder
    */
-  public static com.tt.kafka.example.avro.MessageData.Builder newBuilder() {
-    return new com.tt.kafka.example.avro.MessageData.Builder();
+  public static com.tt.kafka.example.avro.AvroMessageData.Builder newBuilder() {
+    return new com.tt.kafka.example.avro.AvroMessageData.Builder();
   }
 
   /**
-   * Creates a new MessageData RecordBuilder by copying an existing Builder.
+   * Creates a new AvroMessageData RecordBuilder by copying an existing Builder.
    * @param other The existing builder to copy.
-   * @return A new MessageData RecordBuilder
+   * @return A new AvroMessageData RecordBuilder
    */
-  public static com.tt.kafka.example.avro.MessageData.Builder newBuilder(com.tt.kafka.example.avro.MessageData.Builder other) {
-    return new com.tt.kafka.example.avro.MessageData.Builder(other);
+  public static com.tt.kafka.example.avro.AvroMessageData.Builder newBuilder(com.tt.kafka.example.avro.AvroMessageData.Builder other) {
+    return new com.tt.kafka.example.avro.AvroMessageData.Builder(other);
   }
 
   /**
-   * Creates a new MessageData RecordBuilder by copying an existing MessageData instance.
+   * Creates a new AvroMessageData RecordBuilder by copying an existing AvroMessageData instance.
    * @param other The existing instance to copy.
-   * @return A new MessageData RecordBuilder
+   * @return A new AvroMessageData RecordBuilder
    */
-  public static com.tt.kafka.example.avro.MessageData.Builder newBuilder(com.tt.kafka.example.avro.MessageData other) {
-    return new com.tt.kafka.example.avro.MessageData.Builder(other);
+  public static com.tt.kafka.example.avro.AvroMessageData.Builder newBuilder(com.tt.kafka.example.avro.AvroMessageData other) {
+    return new com.tt.kafka.example.avro.AvroMessageData.Builder(other);
   }
 
   /**
-   * RecordBuilder for MessageData instances.
+   * RecordBuilder for AvroMessageData instances.
    */
-  public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<MessageData>
-    implements org.apache.avro.data.RecordBuilder<MessageData> {
+  public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<AvroMessageData>
+    implements org.apache.avro.data.RecordBuilder<AvroMessageData> {
 
     private long sendTime;
     private java.lang.CharSequence recordID;
     private java.lang.CharSequence sendIp;
-    private java.util.List<com.tt.kafka.example.avro.InnerData> datas;
+    private java.util.List<com.tt.kafka.example.avro.AvroInnerData> datas;
 
     /** Creates a new Builder */
     private Builder() {
@@ -211,7 +211,7 @@ public class MessageData extends org.apache.avro.specific.SpecificRecordBase imp
      * Creates a Builder by copying an existing Builder.
      * @param other The existing Builder to copy.
      */
-    private Builder(com.tt.kafka.example.avro.MessageData.Builder other) {
+    private Builder(com.tt.kafka.example.avro.AvroMessageData.Builder other) {
       super(other);
       if (isValidValue(fields()[0], other.sendTime)) {
         this.sendTime = data().deepCopy(fields()[0].schema(), other.sendTime);
@@ -232,10 +232,10 @@ public class MessageData extends org.apache.avro.specific.SpecificRecordBase imp
     }
 
     /**
-     * Creates a Builder by copying an existing MessageData instance
+     * Creates a Builder by copying an existing AvroMessageData instance
      * @param other The existing instance to copy.
      */
-    private Builder(com.tt.kafka.example.avro.MessageData other) {
+    private Builder(com.tt.kafka.example.avro.AvroMessageData other) {
             super(SCHEMA$);
       if (isValidValue(fields()[0], other.sendTime)) {
         this.sendTime = data().deepCopy(fields()[0].schema(), other.sendTime);
@@ -268,7 +268,7 @@ public class MessageData extends org.apache.avro.specific.SpecificRecordBase imp
       * @param value The value of 'sendTime'.
       * @return This builder.
       */
-    public com.tt.kafka.example.avro.MessageData.Builder setSendTime(long value) {
+    public com.tt.kafka.example.avro.AvroMessageData.Builder setSendTime(long value) {
       validate(fields()[0], value);
       this.sendTime = value;
       fieldSetFlags()[0] = true;
@@ -288,7 +288,7 @@ public class MessageData extends org.apache.avro.specific.SpecificRecordBase imp
       * Clears the value of the 'sendTime' field.
       * @return This builder.
       */
-    public com.tt.kafka.example.avro.MessageData.Builder clearSendTime() {
+    public com.tt.kafka.example.avro.AvroMessageData.Builder clearSendTime() {
       fieldSetFlags()[0] = false;
       return this;
     }
@@ -306,7 +306,7 @@ public class MessageData extends org.apache.avro.specific.SpecificRecordBase imp
       * @param value The value of 'recordID'.
       * @return This builder.
       */
-    public com.tt.kafka.example.avro.MessageData.Builder setRecordID(java.lang.CharSequence value) {
+    public com.tt.kafka.example.avro.AvroMessageData.Builder setRecordID(java.lang.CharSequence value) {
       validate(fields()[1], value);
       this.recordID = value;
       fieldSetFlags()[1] = true;
@@ -326,7 +326,7 @@ public class MessageData extends org.apache.avro.specific.SpecificRecordBase imp
       * Clears the value of the 'recordID' field.
       * @return This builder.
       */
-    public com.tt.kafka.example.avro.MessageData.Builder clearRecordID() {
+    public com.tt.kafka.example.avro.AvroMessageData.Builder clearRecordID() {
       recordID = null;
       fieldSetFlags()[1] = false;
       return this;
@@ -345,7 +345,7 @@ public class MessageData extends org.apache.avro.specific.SpecificRecordBase imp
       * @param value The value of 'sendIp'.
       * @return This builder.
       */
-    public com.tt.kafka.example.avro.MessageData.Builder setSendIp(java.lang.CharSequence value) {
+    public com.tt.kafka.example.avro.AvroMessageData.Builder setSendIp(java.lang.CharSequence value) {
       validate(fields()[2], value);
       this.sendIp = value;
       fieldSetFlags()[2] = true;
@@ -365,7 +365,7 @@ public class MessageData extends org.apache.avro.specific.SpecificRecordBase imp
       * Clears the value of the 'sendIp' field.
       * @return This builder.
       */
-    public com.tt.kafka.example.avro.MessageData.Builder clearSendIp() {
+    public com.tt.kafka.example.avro.AvroMessageData.Builder clearSendIp() {
       sendIp = null;
       fieldSetFlags()[2] = false;
       return this;
@@ -375,7 +375,7 @@ public class MessageData extends org.apache.avro.specific.SpecificRecordBase imp
       * Gets the value of the 'datas' field.
       * @return The value.
       */
-    public java.util.List<com.tt.kafka.example.avro.InnerData> getDatas() {
+    public java.util.List<com.tt.kafka.example.avro.AvroInnerData> getDatas() {
       return datas;
     }
 
@@ -384,7 +384,7 @@ public class MessageData extends org.apache.avro.specific.SpecificRecordBase imp
       * @param value The value of 'datas'.
       * @return This builder.
       */
-    public com.tt.kafka.example.avro.MessageData.Builder setDatas(java.util.List<com.tt.kafka.example.avro.InnerData> value) {
+    public com.tt.kafka.example.avro.AvroMessageData.Builder setDatas(java.util.List<com.tt.kafka.example.avro.AvroInnerData> value) {
       validate(fields()[3], value);
       this.datas = value;
       fieldSetFlags()[3] = true;
@@ -404,7 +404,7 @@ public class MessageData extends org.apache.avro.specific.SpecificRecordBase imp
       * Clears the value of the 'datas' field.
       * @return This builder.
       */
-    public com.tt.kafka.example.avro.MessageData.Builder clearDatas() {
+    public com.tt.kafka.example.avro.AvroMessageData.Builder clearDatas() {
       datas = null;
       fieldSetFlags()[3] = false;
       return this;
@@ -412,13 +412,13 @@ public class MessageData extends org.apache.avro.specific.SpecificRecordBase imp
 
     @Override
     @SuppressWarnings("unchecked")
-    public MessageData build() {
+    public AvroMessageData build() {
       try {
-        MessageData record = new MessageData();
+        AvroMessageData record = new AvroMessageData();
         record.sendTime = fieldSetFlags()[0] ? this.sendTime : (java.lang.Long) defaultValue(fields()[0]);
         record.recordID = fieldSetFlags()[1] ? this.recordID : (java.lang.CharSequence) defaultValue(fields()[1]);
         record.sendIp = fieldSetFlags()[2] ? this.sendIp : (java.lang.CharSequence) defaultValue(fields()[2]);
-        record.datas = fieldSetFlags()[3] ? this.datas : (java.util.List<com.tt.kafka.example.avro.InnerData>) defaultValue(fields()[3]);
+        record.datas = fieldSetFlags()[3] ? this.datas : (java.util.List<com.tt.kafka.example.avro.AvroInnerData>) defaultValue(fields()[3]);
         return record;
       } catch (java.lang.Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);
@@ -427,8 +427,8 @@ public class MessageData extends org.apache.avro.specific.SpecificRecordBase imp
   }
 
   @SuppressWarnings("unchecked")
-  private static final org.apache.avro.io.DatumWriter<MessageData>
-    WRITER$ = (org.apache.avro.io.DatumWriter<MessageData>)MODEL$.createDatumWriter(SCHEMA$);
+  private static final org.apache.avro.io.DatumWriter<AvroMessageData>
+    WRITER$ = (org.apache.avro.io.DatumWriter<AvroMessageData>)MODEL$.createDatumWriter(SCHEMA$);
 
   @Override public void writeExternal(java.io.ObjectOutput out)
     throws java.io.IOException {
@@ -436,8 +436,8 @@ public class MessageData extends org.apache.avro.specific.SpecificRecordBase imp
   }
 
   @SuppressWarnings("unchecked")
-  private static final org.apache.avro.io.DatumReader<MessageData>
-    READER$ = (org.apache.avro.io.DatumReader<MessageData>)MODEL$.createDatumReader(SCHEMA$);
+  private static final org.apache.avro.io.DatumReader<AvroMessageData>
+    READER$ = (org.apache.avro.io.DatumReader<AvroMessageData>)MODEL$.createDatumReader(SCHEMA$);
 
   @Override public void readExternal(java.io.ObjectInput in)
     throws java.io.IOException {

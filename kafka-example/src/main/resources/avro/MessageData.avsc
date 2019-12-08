@@ -1,5 +1,5 @@
 {
-  "namespace": "com.tt.kafka.example.avro",
+  "namespace": "com.kafka.example.avro",
   "type": "record",
   "name": "AvroMessageData",
   "fields": [

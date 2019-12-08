@@ -14,7 +14,7 @@ import org.apache.avro.message.SchemaStore;
 @org.apache.avro.specific.AvroGenerated
 public class AvroInnerData extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
   private static final long serialVersionUID = -9140525994737121381L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"AvroInnerData\",\"namespace\":\"com.tt.kafka.example.avro\",\"fields\":[{\"name\":\"dataId\",\"type\":\"int\"},{\"name\":\"dataCommit\",\"type\":\"string\"}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"AvroInnerData\",\"namespace\":\"com.kafka.example.avro\",\"fields\":[{\"name\":\"dataId\",\"type\":\"int\"},{\"name\":\"dataCommit\",\"type\":\"string\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();

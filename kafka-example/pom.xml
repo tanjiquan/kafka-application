@@ -11,39 +11,12 @@
 
     <artifactId>kafka-example</artifactId>
 
-    <repositories>
-        <repository>
-            <id>apache-repo</id>
-            <name>Apache Repository</name>
-            <url>https://repository.apache.org/content/repositories/releases</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>confluent</id>
-            <url>http://packages.confluent.io/maven/</url>
-        </repository>
-    </repositories>
-
-    <properties>
-        <kafka.version>0.10.1.1</kafka.version>
-        <kafka.client.version>0.10.1.1</kafka.client.version>
-        <kafka.scala.version>2.11</kafka.scala.version>
-        <confluent.version>3.1.1</confluent.version>
-        <avro.version>1.8.2</avro.version>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
-
     <dependencies>
         <!--阿里 FastJson依赖-->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
-            <version>1.2.47</version>
+            <version>${fastjson.version}</version>
         </dependency>
 
         <dependency>
@@ -59,7 +32,7 @@
         <dependency>
             <groupId>com.twitter</groupId>
             <artifactId>bijection-avro_${kafka.scala.version}</artifactId>
-            <version>0.9.5</version>
+            <version>${bijection-avro.version}</version>
         </dependency>
         <dependency>
             <groupId>io.confluent</groupId>
@@ -79,7 +52,7 @@
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>
-            <version>4.5.3</version>
+            <version>${httpclient.version}</version>
         </dependency>
     </dependencies>
     <build>
@@ -103,8 +76,6 @@
                         <phase>generate-sources</phase>
                         <goals>
                             <goal>schema</goal>
-                            <!--<goal>protocol</goal>-->
-                            <!--<goal>idl-protocol</goal>-->
                         </goals>
                         <configuration>
                             <sourceDirectory>${project.basedir}/src/main/resources/avro</sourceDirectory>
@@ -143,5 +114,23 @@
 
         </plugins>
     </build>
+
+    <repositories>
+        <repository>
+            <id>apache-repo</id>
+            <name>Apache Repository</name>
+            <url>https://repository.apache.org/content/repositories/releases</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>confluent</id>
+            <url>http://packages.confluent.io/maven/</url>
+        </repository>
+    </repositories>
 
 </project>

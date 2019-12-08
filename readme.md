@@ -71,7 +71,7 @@ json数据:
 <br> java -jar /../avro-tools-1.8.2.jar compile schema /../MessageData.avsc  /../main/java/
 <br> (3)指定如下配置，并且ProducerRecord 和 ConsumerRecords 分别指定为 AvroMessageData 类型
 详情请见 AvroSerializerProducer 和 AvroSerializerConsumer
-<br> props.put("value.serializer", "com.tt.kafka.example.message.serializer.AvroSerializer");
+<br> props.put("value.serializer", "AvroSerializer");
 <br> props.put(AvroSerializer.SCHEMA_CONFIG, AvroMessageData.SCHEMA$);
 
 <br>1.3  protobuf 序列化/反序列化 <br> 

@@ -1,0 +1,10 @@
+# Created by .ignore support plugin (hsz.mobi)
+.DS_Store
+.idea/
+kafka-example/.DS_Store
+kafka-example/kafka-example.iml
+kafka-example/src/.DS_Store
+kafka-example/src/main/.DS_Store
+kafka-example/src/main/java/.DS_Store
+kafka-example/src/main/java/com/.DS_Store
+kafka-example/target/

@@ -62,3 +62,4 @@
 <br> 7.消费端cli
 /Users/tanjiquan/software/hadoop/kafka/kafka_2.12-0.11.0.3/bin/kafka-console-consumer.sh --topic test_topic --bootstrap-server 127.0.0.1:9092 --from-beginning 
 
+<br> 8.重新分配分区
